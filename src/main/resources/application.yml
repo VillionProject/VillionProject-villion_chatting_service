@@ -1,0 +1,33 @@
+
+server:
+  port: 8088
+
+spring:
+  application:
+    name: chatting-service
+  data:
+    mongodb:
+      username: alibou
+      password: alibou
+      host: 192.168.0.107
+      port: 27017
+      database: chat_app
+      authentication-database: admin
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/villion_chatting?serverTimezone=Asia/Seoul
+#    username: root
+#    password: 1234
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.0.107:8761/eureka
+  instance:
+    instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
