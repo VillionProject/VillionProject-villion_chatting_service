@@ -7,12 +7,17 @@ spring:
     name: chatting-service
   data:
     mongodb:
-      username: alibou
-      password: alibou
-      host: 192.168.0.107
-      port: 27017
-      database: chat_app
-      authentication-database: admin
+      uri: mongodb://root:1234@35.192.15.104:27017/chat_app?authSource=admin
+#  data:
+#    mongodb:
+#      username: root
+#      password: 1234
+#      host: 35.192.15.104
+#      port: 27017
+#      database: chat_app
+#      authentication-database: admin
+
+
 #  datasource:
 #    url: jdbc:mysql://localhost:3306/villion_chatting?serverTimezone=Asia/Seoul
 #    username: root
@@ -28,6 +33,6 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: http://192.168.0.107:8761/eureka
+      defaultZone: http://35.192.15.104:8761/eureka
   instance:
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
